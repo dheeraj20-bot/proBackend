@@ -8,7 +8,7 @@ const consultantprofileSchema = new mongoose.Schema({
   about:{
     type:String, 
   },
-  age:{
+  gender:{
     type:String
   },
   dateOfBirth:{

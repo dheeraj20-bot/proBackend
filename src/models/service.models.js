@@ -10,7 +10,7 @@ const serviceSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    description: {
+    description:{
         type: String,
         required: true,
         trim: true
@@ -28,6 +28,10 @@ const serviceSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    ConsultantAvailibilty:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"ConsultantAvailibilty"
+    }
     
 });
 

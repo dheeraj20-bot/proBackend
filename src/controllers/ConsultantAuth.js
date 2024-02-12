@@ -73,7 +73,7 @@ exports.signup = async (req, res) => {
 			about: null,
 			headline:null,
 		});
-		// Create the Additional Profile For User
+
 		const user = await User.create({
 			firstName,
 			lastName,
@@ -81,15 +81,13 @@ exports.signup = async (req, res) => {
 			email,
 			additionalDetails: profileDetails._id,
 			password: hashedPassword,			
-			avatar: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName}`,
+			avatar: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName}&${lastName}`,
 		});
-
 		return res.status(200).json({
 			success: true,
 			user,
 			message: "User registered successfully",
 		});
-		
 	} catch (error) {
 		console.error(error);
 		return res.status(500).json({
@@ -134,7 +132,7 @@ exports.sendotp = async (req, res) => {
 
 exports.login = async (req,res)=>{
 	try{
-const {email, password} = req.body
+    const {email, password} = req.body
 
 	if (!email || !password) {
 		// Return 400 Bad Request status code with error message

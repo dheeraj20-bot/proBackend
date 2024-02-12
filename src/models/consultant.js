@@ -36,7 +36,12 @@ const consultantSchema = new mongoose.Schema({
     },
     additionalDetails: {
         type: mongoose.Schema.Types.ObjectId,
+        required:true,
         ref: "ConsultantProfile",
+    },
+    service: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Service",
     },
 });
 

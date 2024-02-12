@@ -6,6 +6,7 @@ const fileUpload = require("express-fileupload")
 const db = require("./src/config/db.js")
 const userRoutes = require("./src/routes/auth.js");
 const consultantUserRoutes = require("./src/routes/consultantAuth.js")
+const categoryRoutes = require("./src/routes/service.js")
 
 
 dotenv.config();
@@ -26,6 +27,7 @@ app.use(
 
 app.use("/api/v1/auth", userRoutes);
 app.use("/api/v1/auth", consultantUserRoutes);
+app.use("/api/v1/service", categoryRoutes);
 
 
 // app.use(
