@@ -38,6 +38,7 @@ exports.sendotp = async (req, res) => {
       }
   }
 
+  
 exports.signup = async (req,res) =>{
     try{
         const {fullName,phoneNumber,otp,email,role,} = req.body
