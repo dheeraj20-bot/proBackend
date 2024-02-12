@@ -1,28 +1,46 @@
-import mongoose, { Schema } from "mongoose";
+const mongoose = require('mongoose');
+const Schema = require("mongoose")
 
-const userSchema = new Schema(
+
+// Define user schema
+const userSchema = new mongoose.Schema(
     {
-       username:{
-            type:String,
-            required:true,
-            trim:true,
-       },
-       phoneNumber:{
-            type:Number,
-            required:[true,"PhoneNumber is Required"]
-       },
-       avatar:{
-           type:String,
-           required:true
-       },
-       refreshtoken:{
-           type:String
-       }
+        fullName: {
+            type: String,
+            required: true,
+            trim: true,
+        },
+        email: {
+            type: String,
+            required: true,
+            trim: true
+        },
+        phoneNumber: {
+            type: Number,
+            required: [true, "PhoneNumber is Required"]
+        },
+        avatar: {
+            type: String,
+        },
+        role: {
+            type: String,
+            enum: ["Consultant", "User"],
+            default: "User"
+        },
+        token: {
+            type: String
+        },
+        // consultantProfile: {
+        //     type: Schema.Types.ObjectId,
+        //     ref: 'Consultant' // Reference to Consultant model
+        // }
     },
-
     {
-        timestamps:true
+        timestamps: true
     }
-)
+);
 
-export const User = mongoose.model("User",userSchema)
+// Create the User model
+module.exports = mongoose.model("User", userSchema);
+
+
