@@ -26,7 +26,6 @@ exports.createService = async (req, res) => {
 
         // Create a new service with the given details
         const newService = await Service.create({
-            consultantId: consultant._id,
             name: name,
             description: description,
             price: price,

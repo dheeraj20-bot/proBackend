@@ -29,10 +29,6 @@ const userSchema = new mongoose.Schema(
         token: {
             type: String
         },
-        // consultantProfile: {
-        //     type: Schema.Types.ObjectId,
-        //     ref: 'Consultant' // Reference to Consultant model
-        // }
     },
     {
         timestamps: true

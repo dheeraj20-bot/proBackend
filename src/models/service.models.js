@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+
 const serviceSchema = new mongoose.Schema({
     consultantId:{
         type: mongoose.Schema.Types.ObjectId,
@@ -28,11 +29,6 @@ const serviceSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    ConsultantAvailibilty:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"ConsultantAvailibilty"
-    }
-    
 });
 
 module.exports = mongoose.model('Service', serviceSchema);

@@ -64,15 +64,17 @@ exports.signup = async (req, res) => {
 				message: "The OTP is not valid",
 			});
 		}
+        
 
 		const hashedPassword = await bcrypt.hash(password, 10);
 
-		const profileDetails = await Profile.create({
+	    const profileDetails = await Profile.create({
 			gender: null,
 			dateOfBirth: null,
 			about: null,
 			headline:null,
 		});
+        
 
 		const user = await User.create({
 			firstName,
@@ -83,6 +85,9 @@ exports.signup = async (req, res) => {
 			password: hashedPassword,			
 			avatar: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName}&${lastName}`,
 		});
+
+     
+
 		return res.status(200).json({
 			success: true,
 			user,
