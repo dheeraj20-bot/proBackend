@@ -4,7 +4,6 @@ const otpGenerator = require("otp-generator");
 const User = require("../models/user.models");
 const OTP = require("../models/OTP");
 const twilioConfig = require('../config/twilio');
-const consultantprofile = require("../models/consultantProfile.models")
 
 exports.sendotp = async (req, res) => {
     try {
@@ -41,9 +40,9 @@ exports.sendotp = async (req, res) => {
   
 exports.signup = async (req,res) =>{
     try{
-        const {fullName,phoneNumber,otp,email,role,} = req.body
+        const {fullName,phoneNumber,otp,email} = req.body
 
-        if(!fullName || !phoneNumber || !otp || !email || !role){
+        if(!fullName || !phoneNumber || !otp || !email){
             return res.status(403).send({
 				success: false,
 				message: "All Fields are required",
@@ -83,7 +82,6 @@ exports.signup = async (req,res) =>{
             fullName,
             phoneNumber,
             email,
-            role:role,
             avatar: `https://api.dicebear.com/5.x/initials/svg?seed=${fullName}`,
 
         })

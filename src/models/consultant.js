@@ -1,8 +1,12 @@
 const mongoose = require('mongoose');
 
-
 const consultantSchema = new mongoose.Schema({
-    fullName: {
+    firstName: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    lastName: {
         type: String,
         required: true,
         trim: true
@@ -28,17 +32,12 @@ const consultantSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ['Admin', 'Consultant'],
         default: 'Consultant'
     },
-    category:[ {
+    additionalDetails: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category'
-    }],
-    services: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Service'
-    }]
+        ref: "ConsultantProfile",
+    },
 });
 
 module.exports = mongoose.model('ConsultantUser', consultantSchema);
