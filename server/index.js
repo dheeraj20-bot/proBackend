@@ -30,12 +30,11 @@ app.use("/api/v1/auth", consultantUserRoutes);
 app.use("/api/v1/service", categoryRoutes);
 
 
-// app.use(
-// 	cors({
-// 		origin:"http://localhost:3000",
-// 		credentials:true,
-// 	})
-// )
+
+app.use(cors({
+    origin: 'http://localhost:5173',
+    credentials: true // Enable credentials if your frontend sends cookies or authorization headers
+}));
 
 
 app.get("/", (req, res) => {

@@ -12,15 +12,7 @@ const slotSchema = new mongoose.Schema({
     }
 });
 
-
-
-// Define a schema for consultant availability
-const weekTimeSchema = new mongoose.Schema([{
-    weekday: {
-        type: String,
-        enum: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-        required: true
-    },
+const rangeSchema = new mongoose.Schema({
     Timeto: {
         type: String, // Representing time in HH:MM format
         required: true
@@ -29,6 +21,16 @@ const weekTimeSchema = new mongoose.Schema([{
         type: String, // Representing time in HH:MM format
         required: true
     },
+})
+
+// Define a schema for consultant availability
+const weekTimeSchema = new mongoose.Schema([{
+    weekday: {
+        type: String,
+        enum: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        required: true
+    },
+    availbilityrange:rangeSchema,
     slots: [slotSchema] 
 }]);
 
@@ -85,13 +87,13 @@ const consultantSchema = new mongoose.Schema({
     availbility:{
         type:[weekTimeSchema],
         default: [
-            { weekday: 'Sunday',Timeto:defaultStartTime, end:defaultEndTime, slots: [] },
-            { weekday: 'Monday',Timeto: defaultStartTime, end: defaultEndTime, slots: [{ startTime: '10:00', endTime: '10:30' }, { startTime: '11:00', endTime: '11:30' }] },
-            { weekday: 'Tuesday',Timeto: defaultStartTime, end: defaultEndTime, slots: [{ startTime: '10:00', endTime: '10:30' }, { startTime: '11:00', endTime: '11:30' }] },
-            { weekday: 'Wednesday',Timeto: defaultStartTime, end: defaultEndTime, slots: [{ startTime: '10:00', endTime: '10:30' }, { startTime: '11:00', endTime: '11:30' }] },
-            { weekday: 'Thursday',Timeto: defaultStartTime, end: defaultEndTime, slots: [{ startTime: '10:00', endTime: '10:30' }, { startTime: '11:00', endTime: '11:30' }] },
-            { weekday: 'Friday',Timeto: defaultStartTime, end: defaultEndTime, slots: [{ startTime: '10:00', endTime: '10:30' }, { startTime: '11:00', endTime: '11:30' }] },
-            { weekday: 'Saturday', Timeto: defaultStartTime, end: defaultEndTime,slots: [] },
+            { weekday: 'Sunday',range:{Timeto: "", end: ""} , slots: [] },
+            { weekday: 'Monday',range:{Timeto: defaultStartTime, end: defaultEndTime}, slots: [{ startTime: '10:00', endTime: '10:30' }, { startTime: '11:00', endTime: '11:30' }] },
+            { weekday: 'Tuesday',range:{Timeto: defaultStartTime, end: defaultEndTime}, slots: [{ startTime: '10:00', endTime: '10:30' }, { startTime: '11:00', endTime: '11:30' }] },
+            { weekday: 'Wednesday',range:{Timeto: defaultStartTime, end: defaultEndTime}, slots: [{ startTime: '10:00', endTime: '10:30' }, { startTime: '11:00', endTime: '11:30' }] },
+            { weekday: 'Thursday',range:{Timeto: defaultStartTime, end: defaultEndTime}, slots: [{ startTime: '10:00', endTime: '10:30' }, { startTime: '11:00', endTime: '11:30' }] },
+            { weekday: 'Friday',range:{Timeto: defaultStartTime, end: defaultEndTime}, slots: [{ startTime: '10:00', endTime: '10:30' }, { startTime: '11:00', endTime: '11:30' }] },
+            { weekday: 'Saturday',range:{Timeto: "", end: ""} ,slots: [] },
         ]
 
     }
