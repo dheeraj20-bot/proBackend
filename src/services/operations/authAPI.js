@@ -5,7 +5,6 @@ import { setLoading, setToken } from "../../slices/authSlice"
 
 
 
-// const {LOGIN_API}
 const {
     
     LOGIN_API,
@@ -17,7 +16,7 @@ export function login(email, password, navigate) {
     return async (dispatch) => {
       const toastId = toast.loading("Loading...")
       dispatch(setLoading(true))
-      
+
       try {
         const response = await apiConnector("POST", LOGIN_API, {
           email,
