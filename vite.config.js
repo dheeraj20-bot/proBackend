@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   server:{
     proxy:{
-      "/api":"https://serverpro-bv3l.onrender.com",
+      "/api":process.env.VITE_BACKEND_URL,
       changeOrigin: true,
     }
   }
