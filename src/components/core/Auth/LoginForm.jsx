@@ -35,7 +35,7 @@ function LoginForm() {
       className="mt-6 flex w-full flex-col gap-y-4"
     >
       <label className="w-full">
-        <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-white">
+        <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black">
           Email Address <sup className="text-pink-200">*</sup>
         </p>
         <input
@@ -48,11 +48,11 @@ function LoginForm() {
           style={{
             boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
           }}
-          className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-white"
+          className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-black"
         />
       </label>
       <label className="relative">
-        <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-white">
+        <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black">
           Password <sup className="text-pink-200">*</sup>
         </p>
         <input
@@ -65,7 +65,7 @@ function LoginForm() {
           style={{
             boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
           }}
-          className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] pr-12 text-white"
+          className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] pr-12 "
         />
         <span
           onClick={() => setShowPassword((prev) => !prev)}
@@ -85,7 +85,7 @@ function LoginForm() {
       </label>
       <button
         type="submit"
-        className="mt-6 rounded-[8px] bg-yellow-500 py-[8px] px-[12px] font-semibold text-richblack-900"
+        className="mt-6 rounded-[8px] bg-violet-950 text-white py-[8px] px-[12px] font-semibold"
       >
         Sign In
       </button>

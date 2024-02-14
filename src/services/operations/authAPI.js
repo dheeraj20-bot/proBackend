@@ -23,7 +23,7 @@ export function login(email, password, navigate) {
           password,
         })
   
-        console.log("LOGIN API RESPONSE............", response)
+        // console.log("LOGIN API RESPONSE............", response)
   
         if (!response.data.success) {
           throw new Error(response.data.message)
@@ -34,7 +34,8 @@ export function login(email, password, navigate) {
         
         localStorage.setItem("token", JSON.stringify(response.data.token))
         localStorage.setItem("user", JSON.stringify(response.data.user))
-        navigate("/dashboard/my-profile")
+        navigate("/consultant/dashboard")
+
       } catch (error) {
         console.log("LOGIN API ERROR............", error)
         toast.error("Login Failed")
